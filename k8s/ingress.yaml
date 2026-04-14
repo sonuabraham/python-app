@@ -4,7 +4,8 @@ metadata:
   name: python-app
 spec:
   rules:
-  - http:
+  - host: "python-app.test.com"
+    http:
       paths:
       - path: /
         pathType: Prefix
