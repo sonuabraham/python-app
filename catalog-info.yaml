@@ -4,7 +4,7 @@ metadata:
   name: python-app
   description: Python app that displays time.
   # Example for optional annotations
-   annotations:
+  annotations:
      github.com/project-slug: sonuabraham/python-app
   #   backstage.io/techdocs-ref: dir:.
 spec:
