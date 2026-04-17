@@ -1,0 +1,27 @@
+
+
+1. Start the container:
+    docker run --rm -p 3000:3000 -p 7007:7007 -it \
+    -v /home/sonu/backstage-docker:/app \
+    -w /app node:20-bookworm bash
+2. Inside the container:
+        apt-get update && apt-get install -y python3 make g++
+        npx @backstage/create-app@latest
+    Enter the app name when prompted (e.g. backstage), then after it fails on yarn install:
+        cd backstage
+        yarn config set logFilters --json '[{"code":"YN0009","pattern":"isolated-vm*","level":"warning"}]'
+        yarn install
+        echo "module.exports = {};" > node_modules/isolated-vm/isolated-vm.js
+        yarn start
+
+
+3. Install vim if not present in container
+   apt-get update && apt-get install -y vim
+
+4. Modify  app-config.yaml to include the following 
+
+  listen:
+    host: 0.0.0.0
+5. Run yarn start again 
+
+   
